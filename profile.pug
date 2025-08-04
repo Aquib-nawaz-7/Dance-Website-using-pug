@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  style.
+    .profile-container {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .profile-container h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .profile-details {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .profile-details strong {
+      color: #000;
+    }
+
+  .profile-container
+    h2 Your Dance Profile
+    .profile-details
+      p
+        strong Email: 
+        | #{user.email}
+      p
+        strong Favorite Style: 
+        | Hip-Hop (demo data)
+      p
+        strong Upcoming Classes: 
+        | No classes enrolled yet (demo)

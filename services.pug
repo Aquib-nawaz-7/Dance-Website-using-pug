@@ -1,0 +1,137 @@
+extends layout
+
+block content
+  h2(style="text-align: center; font-size: 32px; color: #ff4b91; margin-bottom: 40px; margin-top: 10px;") Explore Our Dance Courses
+  // Dance 1 - Hip Hop
+  .dance-section
+    .dance-text
+      h3 Hip-Hop Dance
+      p A high-energy style combining freestyle with breakdance elements. Great for stamina and style.
+      button.btn-enroll(onclick="openEnrollForm()") Enroll Now
+      button.btn-fees(onclick="showFees(0)") Fee Structure
+      button.btn-gallery(onclick="showGallery(0)") View Images
+    img.dance-img(src="/static/hip-hop dance.jpg", alt="Hip-Hop Dance")
+
+  .dance-modal(id="modal-fees-0")
+    .modal-content-ser
+      span.close(onclick="closeModal('fees-0')") &times;
+      h2 Hip-Hop Dance Fees
+      p 1 Month  ₹1500
+      p 3 Months  ₹4000
+      p 6 Months  ₹7500
+      p 12 Months  ₹12000
+
+  // Dance 2 - Ballet
+  .dance-section
+    .dance-text
+      h3 Ballet
+      p A graceful, classical form focusing on strength and balance. Ideal for posture, poise, and expression.
+      button.btn-enroll(onclick="openEnrollForm()") Enroll Now
+      button.btn-fees(onclick="showFees(1)") Fee Structure
+      button.btn-gallery(onclick="showGallery(1)") View Images
+    img.dance-img(src="/static/ballet dance.jpg", alt="Ballet")
+
+  .dance-modal(id="modal-fees-1")
+    .modal-content-ser
+      span.close(onclick="closeModal('fees-1')") &times;
+      h2 Ballet Dance Fees
+      p 1 Month  ₹1700
+      p 3 Months  ₹4500
+      p 6 Months  ₹8000
+      p 12 Months  ₹13000
+
+  // Dance 3 - Contemporary
+  .dance-section
+    .dance-text
+      h3 Contemporary
+      p Expressive movements blending modern dance and fluid transitions. Builds creativity and control.
+      button.btn-enroll(onclick="openEnrollForm()") Enroll Now
+      button.btn-fees(onclick="showFees(2)") Fee Structure
+      button.btn-gallery(onclick="showGallery(2)") View Images
+    img.dance-img(src="/static/contemporary dance.jpg", alt="Contemporary")
+
+  .dance-modal(id="modal-fees-2")
+    .modal-content-ser
+      span.close(onclick="closeModal('fees-2')") &times;
+      h2 Contemporary Dance Fees
+      p 1 Month  ₹1600
+      p 3 Months  ₹4300
+      p 6 Months  ₹7800
+      p 12 Months  ₹12500
+
+  // Dance 4 - Salsa
+  .dance-section
+    .dance-text
+      h3 Salsa
+      p A vibrant Latin dance style known for fast footwork and partner connection. Builds rhythm and agility.
+      button.btn-enroll(onclick="openEnrollForm()") Enroll Now
+      button.btn-fees(onclick="showFees(3)") Fee Structure
+      button.btn-gallery(onclick="showGallery(3)") View Images
+    img.dance-img(src="/static/salsa dance.jpg", alt="Salsa")
+
+  .dance-modal(id="modal-fees-3")
+    .modal-content-ser
+      span.close(onclick="closeModal('fees-3')") &times;
+      h2 Salsa Dance Fees
+      p 1 Month  ₹1800
+      p 3 Months  ₹4700
+      p 6 Months  ₹8000
+      p 12 Months  ₹13500
+
+  // Enroll Modal
+  .dance-modal#enroll-modal
+    .modal-content-ser
+      span.close(onclick="closeEnrollForm()") &times;
+      h2 Enroll Now
+      p Please contact us via phone or email to complete your enrollment.
+      p Contact: +91 9876543210
+      p Email: info@danceacademy.com
+
+  // Gallery Modal
+  .dance-modal#gallery-modal
+    .modal-content-ser
+      span.close(onclick="closeGallery()") &times;
+      h2 Dance Image Gallery
+      .gallery-images
+
+
+  #services
+    h2(style="text-align: center; font-size: 32px; color: #ff4b91; margin-bottom: 40px; margin-top: 10px;") Our Services
+
+    // Group Dance
+    .service-section
+      img.service-img(src="/static/Group Dance Classes.jpg", alt="Group Dance", loading="lazy")
+      p
+        strong Group Dance Classes — 
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur blanditiis similique ex, autem doloribus minus distinctio aliquam eum quod id! Quas vero cum, fuga facere, error, optio saepe in mollitia exercitationem corporis porro? Odio reprehenderit laudantium tempore eaque, aperiam, distinctio voluptatum quidem temporibus nulla blanditiis, obcaecati iure doloribus explicabo sapiente.
+      button.btn-enroll(onclick="openEnrollForm()") Book Now
+    // Private Coaching
+    .service-section
+      img.service-img(src="/static/Private Coaching.jpg", alt="Private Coaching", loading="lazy")
+      p
+        strong Private Coaching — 
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit. A sed eligendi voluptate laudantium ut tempora inventore id obcaecati magni sunt? Ex esse cumque, eaque nihil sequi fugit molestias dolore corrupti aperiam perspiciatis accusantium exercitationem, non quidem similique optio blanditiis culpa voluptatibus, incidunt ab. Placeat maxime corrupti, nisi doloribus non nemo.
+      button.btn-enroll(onclick="openEnrollForm()") Book Now
+    // Kids Program
+    .service-section
+      img.service-img(src="/static/Kids Dance Programs.jpg", alt="Kids Dance", loading="lazy")
+      p
+        strong Kids Dance Programs — 
+        | Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat quisquam esse fugiat nesciunt odio, corrupti, ipsum nihil deleniti tempore in quo minus delectus quae. Deleniti quis et ut dolore dicta praesentium eaque. Dolor, culpa officiis! Sed, quae expedita consequatur delectus corrupti cum tenetur nisi placeat, mollitia porro inventore repellat perferendis?
+      button.btn-enroll(onclick="openEnrollForm()") Book Now
+    // Wedding Choreography
+    .service-section
+      img.service-img(src="/static/Wedding and Event Choreography.jpg", alt="Wedding Dance", loading="lazy")
+      p
+        strong Wedding Choreography — 
+        | Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia esse ratione tempora dolorum aperiam quo cum temporibus perspiciatis eius, tenetur, soluta, corrupti in expedita vero commodi rerum culpa minima? Itaque minima qui nam nulla at asperiores eligendi temporibus delectus. Natus beatae sequi inventore ullam repellendus debitis laborum aut eius sint?
+      button.btn-enroll(onclick="openEnrollForm()") Book Now
+    // Stage Shows & Performances
+    .service-section
+      img.service-img(src="/static/Stage Shows and Performances.jpg", alt="Stage Show", loading="lazy")
+      p
+        strong Stage Shows & Performances — 
+        | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta mollitia veritatis dolore natus alias itaque sit cupiditate nam. Obcaecati et exercitationem, voluptates praesentium sunt a repellendus repudiandae nihil ipsum iure assumenda nobis labore vel doloribus rem minima beatae delectus pariatur debitis officiis, ad cupiditate modi iusto distinctio. Porro, sint aliquam.
+      button.btn-enroll(onclick="openEnrollForm()") Book Now
+
+      script(src="/static/js files/dancemodal.js")

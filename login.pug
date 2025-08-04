@@ -1,0 +1,107 @@
+extends layout
+
+block content
+  style.
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 350px;
+      text-align: center;
+      color: #fff;
+      margin: auto;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+      letter-spacing: 1px;
+    }
+
+    .form-container input {
+      width: 100%;
+      padding: 12px 15px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .form-container input::placeholder {
+      color: #ccc;
+    }
+
+    .form-container button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .form-container button:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+    }
+
+    .error-msg {
+      color: #ff4d4d;
+      background: rgba(255, 0, 0, 0.1);
+      padding: 10px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .switch-link {
+      margin-top: 15px;
+      color: #ccc;
+      font-size: 14px;
+    }
+
+    .switch-link a {
+      color: #00c6ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+  .form-container
+    h2 Login
+    if message
+      p.error-msg #{message}
+    form(action="/login", method="POST")
+      input(type="email", name="email", placeholder="Email", required)
+      input(type="password", name="password", placeholder="Password", required)
+      button(type="submit") Login
+    p.switch-link Don't have an account?
+      a(href="/signup") Sign up here
+    p.switch-link
+      a(href="/") Back to home

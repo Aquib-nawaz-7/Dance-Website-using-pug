@@ -1,0 +1,221 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Navbar
+    link(rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css")
+    style.
+      
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      body {
+          font-family: Arial, sans-serif;
+      }
+
+      #navbar {
+          background-color: black;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 40px; /* Desktop padding */
+          position: relative; /* Needed for absolute positioning of mobile menu */
+          z-index: 100; /* Ensure navbar is above other content */
+      }
+
+      #logo img {
+          height: 50px;
+          width: 50px;
+      }
+
+      #nav-menu {
+          display: flex; /* Desktop default */
+          gap: 30px;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+      }
+
+      #nav-menu li a {
+          color: white;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 500;
+      }
+
+      #nav-menu li a:hover {
+          color: #ccc;
+      }
+
+      .user-dropdown {
+          position: relative;
+          display: block; 
+      }
+
+      .user-dropdown i {
+          color: white;
+          font-size: 24px;
+          cursor: pointer;
+          padding: 10px;
+      }
+
+      .dropdown-menu {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          background-color: #222;
+          border-radius: 4px;
+          display: none; /* Hidden by default, shown on hover */
+          min-width: 140px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+          z-index: 1000;
+      }
+
+      .dropdown-menu li {
+          list-style: none;
+      }
+
+      .dropdown-menu li a {
+          display: block;
+          padding: 10px 15px;
+          text-decoration: none;
+          color: white;
+      }
+
+      .dropdown-menu li a:hover {
+          background-color: #333;
+      }
+
+      .user-dropdown:hover .dropdown-menu {
+          display: block;
+      }
+
+      
+      .hamburger-menu {
+          display: none; /* Hidden by default on desktop */
+          font-size: 28px;
+          color: white;
+          cursor: pointer;
+      }
+
+        
+      @media (max-width: 768px) {
+          #navbar {
+              padding: 0 20px; /* Adjust padding for smaller screens */
+              height: 60px; /* Slightly smaller height */
+          }
+
+        #logo img {
+            height: 40px;
+            width: 40px;
+        }
+
+    
+        #nav-menu,
+        .user-dropdown {
+            display: none;
+        }
+
+    
+      .hamburger-menu {
+          display: block;
+      }
+
+    
+        body.menu-open #nav-menu,
+        body.menu-open .user-dropdown {
+            display: flex; /* Show the menu items */
+            flex-direction: column; /* Stack them vertically */
+            position: absolute;
+            top: 60px; /* Below the navbar */
+            left: 0;
+            width: 100%;
+            background-color: #333; /* Darker background for mobile menu */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            padding: 20px 0;
+            gap: 0; /* Reset gap for vertical stacking */
+        }
+
+          body.menu-open #nav-menu li a,
+          body.menu-open .user-dropdown li a {
+              padding: 12px 20px; /* More padding for touch targets */
+              font-size: 18px;
+              text-align: center; /* Center text in mobile menu */
+              width: 100%;
+          }
+
+    
+        body.menu-open .user-dropdown {
+            position: static; /* Remove absolute positioning */
+            width: 100%;
+            text-align: center;
+            margin-top: 10px; /* Space from nav links */
+        }
+
+        body.menu-open .user-dropdown i {
+            padding: 15px; /* Larger touch target for icon */
+        }
+
+        body.menu-open .user-dropdown .dropdown-menu {
+            position: static; /* Make dropdown static within the mobile menu */
+            width: 100%;
+            background-color: #444; /* Slightly different background */
+            box-shadow: none;
+            border-radius: 0;
+            min-width: unset; /* Remove min-width constraint */
+        }
+    
+        body.menu-open .user-dropdown:hover .dropdown-menu {
+            display: block; 
+          }
+      }
+
+      
+      @media (max-width: 480px) {
+        #navbar {
+            padding: 0 15px; /* Even less padding */
+        }
+
+        #logo img {
+            height: 35px;
+            width: 35px;
+        }
+
+        body.menu-open #nav-menu li a,
+        body.menu-open .user-dropdown li a {
+            font-size: 16px; /* Slightly smaller font for very small screens */
+            padding: 10px 15px;
+        }
+      }
+
+
+
+  body
+    nav#navbar
+      a#logo(href="/")
+        img(src="/static/logo.png", alt="logo")
+
+      ul#nav-menu
+        li: a(href="/") HOME
+        li: a(href="/about") ABOUT US
+        li: a(href="/services") SERVICES
+        li: a(href="/contact") CONTACT US
+
+      .user-dropdown
+        i.fa-solid.fa-user
+        ul.dropdown-menu
+          if !user
+            li
+              a(href="/login") Login
+            li
+              a(href="/signup") Signup
+          else
+            li
+              a(href="/profile") Profile
+            li
+              a(href="/logout") Logout

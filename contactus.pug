@@ -1,0 +1,29 @@
+extends layout 
+
+block content
+
+    if submitted
+        h2(style="text-align:center; margin-top:50px; color:black;") Your form has been submitted ✅ 
+
+    h1(style="text-align: center; font-size: 32px; color: #ff4b91; margin-bottom: 40px; margin-top: 10px;") Contact Us
+    #form 
+        <form action="/contact" method="POST">
+            div 
+                input(type="text", name="name", placeholder="Enter your name", required) 
+            div
+                input(type="email", name="email", placeholder="Enter your email", required)
+            div
+                input(type="number", name="phone", placeholder="Enter your phone number", required)
+            div
+                input(type="number", name="age", placeholder="Enter your age", required)
+            div
+                select(name="gender", required)
+                    option(value="male") Male
+                    option(value="female") Female
+            div
+                input(type="text", name="intrest", placeholder="Which type of dance u wanna learn", required)        
+            div
+                textarea(name="message", placeholder="Enter your message", rows="4", required)
+            div
+                input(type="submit", value="Submit" id="submit")
+        </form>
